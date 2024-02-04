@@ -60,6 +60,27 @@ const loginhandler=(event)=>{
     }
 }
 
+const emailverify=()=>{
+    const token = window.location.pathname.split('/').pop();
+    const uid = window.location.pathname.split('/').slice(-2)[0];
+        fetch(`https://librar-apis.onrender.com/user/active/${uid}/${token}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Your account has been activated successfully. You can now log in.');
+                window.location.href = 'login.html';
+            } else {
+                alert('Account activation failed. Please try again or contact support.');
+                window.location.href = 'index.html';
+            }
+        })
+        
+}
+
 const navbarview=()=>{
     const token = localStorage.getItem("token");
     const user_id = localStorage.getItem("user_id");
