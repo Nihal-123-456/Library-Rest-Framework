@@ -1,0 +1,136 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    background: rgb(253, 247, 247)
+}
+.logo-img{
+    width: 130px;
+    height: 70px;
+}
+.ban-img{
+    filter: brightness(30%);
+    width: 100%;
+    height: 75vh;
+}
+.ban-txt{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+}
+.ban-txt p{
+    margin-top: 50px;
+}
+.category-container{
+    width: 1000px;
+    margin: auto;
+}
+.cat-img{
+    width: 150px;
+    height: 150px;
+}
+.category-card :hover{
+    cursor: pointer;
+}
+.book-img{
+    width: 250px;
+    height: 250px;
+}
+.book-container{
+    width: 1000px;
+    margin: auto;
+}
+.input{
+    border: none;
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 5px;
+    width: 300px;
+}
+.butn{
+    background-color: rgb(64, 110, 110);
+    border: none;
+    border-radius: 10rem;
+    width: 150px;
+}
+.detail-img img{
+    width:300px; 
+    height:380px;
+}
+.detail-btns{
+    border-radius: 10rem;
+    padding: 9px 16px;
+}
+
+@media only screen and (max-width: 912px){
+    .nav-items-r{
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+    .nav-items-l{
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .ban-img{
+        height: 50vh;
+    }
+    .ban-txt{
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: white;
+    }
+    .ban-txt h2{
+        font-size: 22px;
+    }
+    .ban-txt p{
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .category-container{
+        width: 90%;
+        margin: auto;
+    }
+    .book-container{
+        width: 90%;
+        margin: auto;
+    }
+    .foot-ttl{
+        margin-top: 20px;
+    }
+    .detail-img img{
+        width: 100%;
+        margin-left: 25px;  
+    }
+    .detail-txt{
+        text-align: center;
+    }
+    .detail-txt-card{
+        margin-left: 25px;
+        margin-top: 20px;
+    }
+    .signup-img{
+        visibility: hidden;
+    }
+}
+
+@media only screen and (height: 1366px) and (width:1024px){
+    .ban-txt{
+        position: absolute;
+        top: 22%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: white;
+    }
+    .ban-img{
+        filter: brightness(30%);
+        width: 100%;
+        height: 30vh;
+    }
+}
