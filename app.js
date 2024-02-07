@@ -11,7 +11,7 @@ const categoryview=()=>{
                 <li onclick="bookview('${d.id}')"><img class="cat-img" src=${d.image} alt=""></li>
             </div>
             <div class="card-body">
-                <li onclick="bookview('${d.id}')" class="text-dark text-decoration-none"><h5 style="margin-bottom: -10px; margin-top: -15px;">${d.name}</h5></li>
+                <li onclick="bookview('${d.id}')" class="text-dark text-decoration-none"><h5 class="fw-bold" style="margin-bottom: -10px; margin-top: -10px;">${d.name}</h5></li>
             </div>
             </div>
             `
@@ -34,39 +34,46 @@ const bookview=(search)=>{
             const user_id = localStorage.getItem("user_id");
             if(token && user_id){
                 div.innerHTML = `
-                <div class="card text-center" style="border: none; box-shadow: 2px 2px 4px gray; width: 16rem; height: 480px">
-                    <div class="card-img-top">
-                        <img class="book-img" src=${d.image} alt="">
-                    </div>
-                    <div class="card-body">
-                        <h5 style="margin-top: -10px;">${d.title}</h5>
-                        <p>${d.author}</p>
-                        <p class="text-success" style="margin-top: -15px;">${d.quantity} copies available</p>
-                        <div class="d-flex flex-wrap gap-3 justify-content-center align-items-center">
-                            <a href="bookdetails.html?BookId=${d.id}" class="btn btn-info " style="border-radius: 10rem;font-weight: 500;">Details</a>
-                            <button onclick="borrowbookview('${d.id}')" class="btn btn-info" style="border-radius: 10rem;font-weight: 500;">Borrow</button> 
-                            <button onclick="addfavouritesview('${d.id}')" class="btn btn-info" style="border-radius: 10rem;font-weight: 500;">Add to favourites</button> 
+                <li class="slide-visible">
+                        <div class="card shadow" style="height: 485px;">
+                            <div class="ratio ratio-4x3">
+                                <img src=${d.image} class="card-img-top" loading="lazy" alt="...">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title fw-bold">${d.title}</h4>
+                                <h6 class="card-title fw-bold">${d.author}</h6>
+                                <p class="card-text fw-bold" style="color: #E46E2B">${d.quantity} copies available</p>
+                                
+                                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                <a href="bookdetails.html?BookId=${d.id}" class="btn fw-bold text-light" style="border-radius: 10rem;background-color: #174A7C">Details</a>
+                                <a onclick="addfavouritesview('${d.id}')" class="btn fw-bold text-light" style="border-radius: 10rem;background-color: #E46E2B">Add to favourites</a>
+                                <a onclick="borrowbookview('${d.id}')" class="btn fw-bold text-light mt-2" style="border-radius: 10rem;background-color: #174A7C">Borrow</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </li>
             `
             parent.appendChild(div);
             }
             else{
                 div.innerHTML = `
-                <div class="card text-center" style="border: none; box-shadow: 2px 2px 4px gray; width: 16rem; height: 450px">
-                        <div class="card-img-top">
-                            <img class="book-img" src=${d.image} alt="">
-                        </div>
-                        <div class="card-body">
-                            <h5 style="margin-top: -10px;">${d.title}</h5>
-                            <p>${d.author}</p>
-                            <p class="text-success" style="margin-top: -15px;">${d.quantity} copies available</p>
-                            <div class="d-flex gap-3 justify-content-center">
-                                <a href="bookdetails.html?BookId=${d.id}" class="btn btn-info mt-2 mb-3" style="border-radius: 10rem;font-weight: 500;">Details</a>
+                <li class="slide-visible">
+                        <div class="card shadow" style="height: 430px;">
+                            <div class="ratio ratio-4x3">
+                                <img src=${d.image} class="card-img-top" loading="lazy" alt="...">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title fw-bold">${d.title}</h4>
+                                <h6 class="card-title fw-bold">${d.author}</h6>
+                                <p class="card-text fw-bold" style="color: #E46E2B">${d.quantity} copies available</p>
+                                
+                                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                <a href="bookdetails.html?BookId=${d.id}" class="btn fw-bold text-light" style="border-radius: 10rem;background-color: #174A7C">Details</a>
+                            
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </li>
                 `
                 parent.appendChild(div);
             }
@@ -202,16 +209,19 @@ const navbarview=()=>{
         div.innerHTML = `
         <div class="d-lg-flex justify-content-around align-items-center gap-5">
         <div class="nav-items-l d-lg-flex justify-content-center align-items-center gap-5">
-            <img class="logo-img" src="Images/book_logo.png" alt="">
-            <li style="font-weight: 500;list-style: none;"><a href="index.html" class="text-dark text-decoration-none">Home</a></li>
-            <li style="font-weight: 500;list-style: none;"><a href="#about" class="text-dark text-decoration-none">About</a></li>
-            <li style="font-weight: 500;list-style: none;"><a href="#contact" class="text-dark text-decoration-none">Contact</a></li>
-            <li style="font-weight: 500;list-style: none;"><a href="borrowhistory.html" class="text-dark text-decoration-none">Borrow History</a></li>
+            <div>
+                <img class="logo-img" src="Images/new_logo.png" alt="">
+                <p class="ms-3 fw-bold" style="color: #E46E2B;">Book Oasis</p>
+            </div>
+            <li style="font-weight: 600;list-style: none;font-size: 18px"><a href="index.html" class="text-dark text-decoration-none">Home</a></li>
+            <li style="font-weight: 600;list-style: none;font-size: 18px"><a href="#about" class="text-dark text-decoration-none">About</a></li>
+            <li style="font-weight: 600;list-style: none;font-size: 18px"><a href="#contact" class="text-dark text-decoration-none">Contact</a></li>
+            <li style="font-weight: 600;list-style: none;font-size: 18px"><a href="borrowhistory.html" class="text-dark text-decoration-none">Borrow History</a></li>
         </div>
         <div class="nav-items-r d-lg-flex justify-content-center align-items-center gap-4">
-            <i class="fa fa-shopping-cart" style="font-size:24px"></i>
-            <a href="favourites.html" class="" style="font-weight: 500;"><i class="fa fa-heart" style="font-size:24px;color:black"></i></a>
-            <li class="btn btn-outline-secondary" style="font-weight: 500;" onclick="LogoutHandler('')">Log out</li>
+            <i class="fa fa-shopping-cart" style="font-size:24px;color: #E46E2B"></i>
+            <a href="favourites.html" class="" style="font-weight: 500;"><i class="fa fa-heart" style="font-size:24px;color:#E46E2B"></i></a>
+            <li class="btn px-4" style="font-weight: 600;background-color: #174A7C;color: white;border-radius: 10rem;font-size: 18px" onclick="LogoutHandler('')">Log out</li>
         </div>
         </div>
         `
@@ -223,14 +233,17 @@ const navbarview=()=>{
         div.innerHTML = `
         <div class="d-lg-flex justify-content-around align-items-center gap-5">
         <div class="nav-items-l d-lg-flex justify-content-center align-items-center gap-5">
-            <img class="logo-img" src="Images/book_logo.png" alt="">
-            <li style="font-weight: 500;list-style: none;"><a href="index.html" class="text-dark text-decoration-none">Home</a></li>
-            <li style="font-weight: 500;list-style: none;"><a href="#about" class="text-dark text-decoration-none">About</a></li>
-            <li style="font-weight: 500;list-style: none;"><a href="#contact" class="text-dark text-decoration-none">Contact</a></li>
+            <div>
+                <img class="logo-img" src="Images/new_logo.png" alt="">
+                <p class="ms-3 fw-bold" style="color: #E46E2B;">Book Oasis</p>
+            </div>
+            <li style="font-weight: 600;list-style: none;font-size: 18px"><a href="index.html" class="text-dark text-decoration-none">Home</a></li>
+            <li style="font-weight: 600;list-style: none;font-size: 18px"><a href="#about" class="text-dark text-decoration-none">About</a></li>
+            <li style="font-weight: 600;list-style: none;font-size: 18px"><a href="#contact" class="text-dark text-decoration-none">Contact</a></li>
         </div>
         <div class="nav-items-r d-lg-flex justify-content-center align-items-center gap-5">
-            <a href="login.html" class="btn btn-outline-secondary" style="font-weight: 500;">Log in</a>
-            <a href="signup.html" class="btn btn-outline-secondary" style="font-weight: 500;">Sign up</a>
+            <a href="login.html" class="btn px-4" style="font-weight: 600;background-color:#174A7C;color: white;border-radius: 10rem;font-size: 18px">Log in</a>
+            <a href="signup.html" class="btn px-4" style="font-weight: 600;background-color: #174A7C;color: white;border-radius: 10rem;font-size: 18px">Sign up</a>
         </div>
         </div>
         `
@@ -246,12 +259,12 @@ const bannerbtn=()=>{
     const btn = document.createElement("div")
     if(token && user_id){
         btn.innerHTML = `
-        <a href="#book-cards" class="btn btn-outline-light fw-bold mt-3">See our books</a>
+        <a href="#book-cards" class="btn mt-3 px-4" style="font-weight: 600;background-color: #E46E2B;color: white;border-radius: 10rem;font-size: 18px">See our books</a>
         `
     }
     else{
         btn.innerHTML = `
-        <a href="signup.html" class="btn btn-outline-light fw-bold mt-3">Get Started</a>
+        <a href="signup.html" class="btn mt-3 px-4" style="font-weight: 600;background-color: #E46E2B;color: white;border-radius: 10rem;font-size: 18px;">Get Started</a>
         `
     } 
     parent.appendChild(btn)
